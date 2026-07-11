@@ -209,7 +209,7 @@
                     for (let f = PISOS; f >= 1; f--) {
                         for (let a = 1; a <= APTOS_POR_PISO; a++) {
                             data.push({ 
-                                id: `${f}-${a}`, piso: f, apto: a, 
+                                id: `P${f}A${a}`, piso: f, apto: a, 
                                 presente: false,
                                 inspeccionado: false
                             });
@@ -225,7 +225,7 @@
                 alert("Error al cargar los datos. Se usará una versión de solo lectura temporal.");
                 data = [];
                 for (let f = PISOS; f >= 1; f--) {
-                    for (let a = 1; a <= APTOS_POR_PISO; a++) data.push({ id: `${f}-${a}`, piso: f, apto: a, presente: false, inspeccionado: false });
+                    for (let a = 1; a <= APTOS_POR_PISO; a++) data.push({ id: `P${f}A${a}`, piso: f, apto: a, presente: false, inspeccionado: false });
                 }
             } finally {
                 showLoading(false);
