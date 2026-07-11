@@ -198,7 +198,7 @@
                 
                 if (fetchedData && fetchedData.length > 0) {
                     data = fetchedData.map(d => ({
-                        id: d.id,
+                        id: String(d.id),
                         piso: d.piso,
                         apto: d.apto,
                         presente: d.presente === true || d.presente === "true",
@@ -234,7 +234,8 @@
         }
 
         async function togglePresente(id) {
-            const index = data.findIndex(item => item.id === id);
+            const index = data.findIndex(item => String(item.id) === String(id));
+            if (index === -1) return;
             const estadoAnterior = data[index].presente;
             
             data[index].presente = !estadoAnterior;
@@ -257,7 +258,8 @@
         }
 
         async function toggleInspeccionado(id) {
-            const index = data.findIndex(item => item.id === id);
+            const index = data.findIndex(item => String(item.id) === String(id));
+            if (index === -1) return;
             const estadoAnterior = data[index].inspeccionado;
             
             data[index].inspeccionado = !estadoAnterior;
